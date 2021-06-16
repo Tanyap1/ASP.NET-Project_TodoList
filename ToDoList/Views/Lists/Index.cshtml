@@ -6,7 +6,7 @@
     @foreach (var b in Model)
     {
         <li>
-  <a asp-controller="Lists" asp-action="Details" asp-route-name="@b.Task">@b.Task</a>,  @b.DueDate
+  <a asp-controller="Lists" asp-action="Details" asp-route-name="@b.Task">@b.Task</a>,  @b.DueDate ,@b.Duetime, @b.IsDone
         </li>
     }
 
