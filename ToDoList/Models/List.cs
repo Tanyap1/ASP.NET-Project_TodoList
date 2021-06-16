@@ -10,8 +10,10 @@ namespace ToDoList.Models
     {
         public int Id { get; set; }
         [Required]
+        
 
         public string Task { get; set; }
+        [MaxLength(80)]
         public String DueDate { get; set; }
 
         public int Duetime { get; set; }
