@@ -2,7 +2,7 @@
 
 namespace ToDoList.Data.Migrations
 {
-    public partial class CreateListTable : Migration
+    public partial class TableTaskCreation : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -21,6 +21,5 @@ namespace ToDoList.Models
         //naming convention
         public List List { get; set; }
         public TaskCategory TaskCategory { get; set; }
-        public List<Detail>Details { get; set; }
     }
 }

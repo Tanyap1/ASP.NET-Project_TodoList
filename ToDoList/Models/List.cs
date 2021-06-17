@@ -14,13 +14,16 @@ namespace ToDoList.Models
 
         public string Task { get; set; }
         [MaxLength(80)]
-        public DateTime DueDate { get; set; }
+        public String DueDate { get; set; }
 
         public int Duetime { get; set; }
         public bool IsDone { get; set; }
+
+        //fk
+        public int TaskId { get; set; }
+
         //child ref
         public List<Task>Tasks { get; set; }
-        public List<Detail> Details { get; set; }
 
     }
 
