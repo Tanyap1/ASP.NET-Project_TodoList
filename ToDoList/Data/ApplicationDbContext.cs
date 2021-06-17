@@ -15,6 +15,7 @@ namespace ToDoList.Data
         public DbSet<Task> Tasks { get; set; }
         public DbSet<Detail> Details { get; set; }
 
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
