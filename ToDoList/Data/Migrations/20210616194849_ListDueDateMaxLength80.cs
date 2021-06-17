@@ -3,7 +3,7 @@
 namespace ToDoList.Data.Migrations
 {
     public partial class ListDueDateMaxLength80 : Migration
-    {
+    {s
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<string>(

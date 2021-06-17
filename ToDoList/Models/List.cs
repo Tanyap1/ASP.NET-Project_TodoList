@@ -18,6 +18,8 @@ namespace ToDoList.Models
 
         public int Duetime { get; set; }
         public bool IsDone { get; set; }
+
+        public List<Task>Tasks { get; set; }
         }
     
         }
