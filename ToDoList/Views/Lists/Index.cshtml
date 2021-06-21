@@ -6,9 +6,10 @@
     @foreach (var b in Model)
     {
         <li>
-            <a asp-controller="Lists" asp-action="Details" asp-route-name="@b.Task">@b.Task</a>,  @b.DueDate ,@b.Duetime, @b.IsDone
+            <a asp-controller="Lists" asp-action="Details" asp-route-name="@b.Task">@b.Task</a>,  @b.DueDate ,@b.Duetime,@b.TaskId, @b.IsDone
         </li>
     }
 
 
 </ul>
+<img src="~/img/task/todo.png" />

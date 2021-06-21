@@ -17,9 +17,7 @@ namespace ToDoList.Models
 
         //foreign key
         public int ListId { get; set;}
-        public int TaskCategoryId { get; set; }
         //naming convention
         public List List { get; set; }
-        public TaskCategory TaskCategory { get; set; }
     }
 }

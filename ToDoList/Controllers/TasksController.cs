@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -14,6 +15,7 @@ namespace ToDoList.Controllers
     public class TasksController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private object stream;
 
         public TasksController(ApplicationDbContext context)
         {
@@ -21,10 +23,12 @@ namespace ToDoList.Controllers
         }
 
         // GET: Tasks
-        public async Task<IActionResult> Index()
+
+#pragma warning disable CS0114 // Member hides inherited member; missing override keyword
+        private IActionResult View(object p)
+#pragma warning restore CS0114 // Member hides inherited member; missing override keyword
         {
-            var applicationDbContext = _context.Tasks.Include(t => t.List).Include(t => t.TaskCategory);
-            return View(await applicationDbContext.ToListAsync());
+            throw new NotImplementedException();
         }
 
         // GET: Tasks/Details/5
@@ -37,7 +41,6 @@ namespace ToDoList.Controllers
 
             var task = await _context.Tasks
                 .Include(t => t.List)
-                .Include(t => t.TaskCategory)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (task == null)
             {
@@ -51,7 +54,6 @@ namespace ToDoList.Controllers
         public IActionResult Create()
         {
             ViewData["ListId"] = new SelectList(_context.Lists, "Id", "Task");
-            ViewData["TaskCategoryId"] = new SelectList(_context.TaskCategories, "Id", "Id");
             return View();
         }
 
@@ -60,16 +62,29 @@ namespace ToDoList.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Importance,Image,ListId,TaskCategoryId")] Task task)
+        public async Task<IActionResult> Create([Bind("Id,Name,Importance,ListId")] Task task, IformFile Image)
         {
             if (ModelState.IsValid)
             {
+                //img
+                if (Image != null)
+                { 
+                    var filePath = Path.GetTempFileName();
+                    var fileName = Guid.NewGuid() + "-" + Image.FileName;
+                    var uploadPath = System.IO.Directory.GetCurrentDirectory() + "\\wwwroot\\img\\task\\" + fileName;
+
+                    //strem
+                    using (var strem = new FileStream(uploadPath, FileMode.Create))
+                    {
+                        await Image.CopyToAsync(stream);
+                    }
+                    task.Image = fileName;
+                }
                 _context.Add(task);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ListId"] = new SelectList(_context.Lists, "Id", "Task", task.ListId);
-            ViewData["TaskCategoryId"] = new SelectList(_context.TaskCategories, "Id", "Id", task.TaskCategoryId);
             return View(task);
         }
 
@@ -87,7 +102,6 @@ namespace ToDoList.Controllers
                 return NotFound();
             }
             ViewData["ListId"] = new SelectList(_context.Lists, "Id", "Task", task.ListId);
-            ViewData["TaskCategoryId"] = new SelectList(_context.TaskCategories, "Id", "Id", task.TaskCategoryId);
             return View(task);
         }
 
@@ -124,7 +138,6 @@ namespace ToDoList.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ListId"] = new SelectList(_context.Lists, "Id", "Task", task.ListId);
-            ViewData["TaskCategoryId"] = new SelectList(_context.TaskCategories, "Id", "Id", task.TaskCategoryId);
             return View(task);
         }
 
@@ -138,7 +151,6 @@ namespace ToDoList.Controllers
 
             var task = await _context.Tasks
                 .Include(t => t.List)
-                .Include(t => t.TaskCategory)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (task == null)
             {
