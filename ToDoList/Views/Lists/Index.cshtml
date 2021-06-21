@@ -1,29 +1,14 @@
 ﻿@model IEnumerable<ToDoList.Models.List>
 
 <h1>To Do List</h1>
-
+<h2 id="date"></h2>
 <ul>
     @foreach (var b in Model)
     {
         <li>
-  <a asp-controller="Lists" asp-action="Details" asp-route-name="@b.Task">@b.Task</a>,  @b.DueDate ,@b.Duetime, @b.IsDone
+            <a asp-controller="Lists" asp-action="Details" asp-route-name="@b.Task">@b.Task</a>,  @b.DueDate ,@b.Duetime, @b.IsDone
         </li>
     }
 
-    @*<li>
-            <a asp-controller="Lists" asp-action="Details" asp-route-name=" Wake up at 7 am"> Wake up at 7 am</a>
-        </li>
-        <li>
-            <a asp-controller="Lists" asp-action="Details" asp-route-name="Create Daily Time Management">Create Daily Time Management</a>
-        </li>
-        <li><a asp-controller="Lists" asp-action="Details" asp-route-name="Attend classes">Attend classes</a></li>
-        <li>
-            <a asp-controller="Lists" asp-action="Details" asp-route-name="Send an email update to the team: 9am today">Send an email update to the team: 9am today</a>
-        </li>
-        <li>
-            <a asp-controller="Lists" asp-action="Details" asp-route-name="Call the design agency to finalize mockups: 1:00pm today">Call the design agency to finalize mockups: 1:00pm today</a>
-        </li>
-        <li>
-            <a asp-controller="Lists" asp-action="Details" asp-route-name="Gym">Gym time</a>
-        </li>*@
-</ul> 
+
+</ul>

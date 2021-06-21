@@ -16,7 +16,7 @@ namespace ToDoList.Models
         public string Image { get; set; }
 
         //foreign key
-        public int ListId { get; set;}
+        public int ListTask { get; set;}
         public int TaskCategoryId { get; set; }
         //naming convention
         public List List { get; set; }
