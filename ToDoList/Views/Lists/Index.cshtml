@@ -2,14 +2,15 @@
 
 <h1>To Do List</h1>
 <h2 id="date"></h2>
-<ul>
+<ol>
     @foreach (var b in Model)
     {
         <li>
-            <a asp-controller="Lists" asp-action="Details" asp-route-name="@b.Task">@b.Task</a>,  @b.DueDate ,@b.Duetime,@b.TaskId, @b.IsDone
+      <input type="checkbox" id="task" />
+            <label for=" checkbox"><a asp-controller="Lists" asp-action="Details" asp-route-name="@b.Task">@b.Task</a>,  @b.DueDate ,@b.Duetime,@b.TaskId, @b.IsDone</label>
         </li>
     }
 
 
-</ul>
+</ol>
 <img src="~/img/task/todo.png" />
