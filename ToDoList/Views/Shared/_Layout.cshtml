@@ -16,8 +16,8 @@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                   
-                    <img src="~/img/logo.png" alt="Logo"/>
+
+                    <img src="~/img/logo.png" alt="Logo" />
 
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -27,13 +27,13 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark"  asp-controller="Lists" asp-action="Index">ToDoList</a>
+                            <a class="nav-link text-dark" asp-controller="Lists" asp-action="Index">ToDoList</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark"  asp-controller="Lists" asp-action="Create">Create your List</a>
+                            <a class="nav-link text-dark" asp-controller="Lists" asp-action="Create">Create your List</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark"  asp-controller="Tasks" asp-action="Create">Tasks</a>
+                            <a class="nav-link text-dark" asp-controller="Tasks" asp-action="Create">Tasks</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
@@ -56,6 +56,8 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/JavaScript.js"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
