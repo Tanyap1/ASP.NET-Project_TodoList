@@ -20,7 +20,6 @@ namespace ToDoList.Controllers
         private readonly ApplicationDbContext _context;
         private readonly object stream;
 
-
         public TasksController(ApplicationDbContext context)
         {
             _context = context;
