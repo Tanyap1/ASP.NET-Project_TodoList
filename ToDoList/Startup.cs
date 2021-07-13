@@ -39,8 +39,8 @@ namespace ToDoList
             services.AddAuthentication()
                 .AddGoogle(options =>
                 {//not good idea to use the value
-                    options.ClientId = Configuration.GetSection("Authentication:Google")["ClientId"];
-                    options.ClientSecret = Configuration.GetSection("Authentication:Google")["ClientSecret"];
+                    options.ClientId = "40153373107-cskem5dilvniu2akm3ig7r9u54chvd2h.apps.googleusercontent.com";
+                    options.ClientSecret = "V4949_6YyVPsfHFaE9uW6SHD";
                 });
 
 
