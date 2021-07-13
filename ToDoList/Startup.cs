@@ -38,7 +38,9 @@ namespace ToDoList
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddAuthentication()
                 .AddGoogle(options =>
-                {//not good idea to use the value
+                {
+                    //not good idea to use the value but doesnt work for me ("Authentication:Google")["ClientId"];
+                 //:
                     options.ClientId = "40153373107-cskem5dilvniu2akm3ig7r9u54chvd2h.apps.googleusercontent.com";
                     options.ClientSecret = "V4949_6YyVPsfHFaE9uW6SHD";
                 });
