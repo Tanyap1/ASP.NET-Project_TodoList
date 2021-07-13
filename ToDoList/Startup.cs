@@ -36,7 +36,12 @@ namespace ToDoList
                 .AddRoles<IdentityRole>()
 
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-
+            services.AddAuthentication()
+                .AddGoogle(options =>
+                {//not good idea to use the value
+                    options.ClientId = Configuration.GetSection("Authentication:Google")["ClientId"];
+                    options.ClientSecret = Configuration.GetSection("Authentication:Google")["ClientSecret"];
+                });
 
 
 
