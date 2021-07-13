@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,10 +13,12 @@ using Task = ToDoList.Models.Task;
 
 namespace ToDoList.Controllers
 {
+    [Authorize (Roles = "Administrator")]
+
     public class TasksController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private object stream;
+        private readonly object stream;
 
         public TasksController(ApplicationDbContext context)
         {

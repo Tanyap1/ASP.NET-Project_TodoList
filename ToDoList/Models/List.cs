@@ -8,6 +8,7 @@ namespace ToDoList.Models
 {
     public class List
     {
+        public static object ListId { get; internal set; }
         public int Id { get; set; }
         [Required]
         
@@ -24,7 +25,6 @@ namespace ToDoList.Models
 
         //child ref
         public List<Task>Tasks { get; set; }
-
     }
 
 }

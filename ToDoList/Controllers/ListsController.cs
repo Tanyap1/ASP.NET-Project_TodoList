@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using ToDoList.Models;
 
 namespace ToDoList.Controllers
 {
+    [Authorize]
     public class ListsController : Controller
     {
         public IActionResult Index()
@@ -14,12 +16,13 @@ namespace ToDoList.Controllers
             lists.Add(new List { Id = 2, Task = "Create Daily Time Management", DueDate = "June 16", Duetime = 9, IsDone = false });
             lists.Add(new List { Id = 3, Task = "Attend classes",DueDate="June 16 ",Duetime=11 , IsDone=false});
             lists.Add(new List { Id = 4, Task = "Send an email update to the team: 9am today", DueDate ="June 16",Duetime=9, IsDone= false});
-            lists.Add(new List { Id = 5, Task = "Gym", DueDate ="June 16" ,Duetime=7, IsDone= false});
+            lists.Add(new List { Id = 5, Task = "Gym", DueDate ="June 16" ,Duetime=7, IsDone= true});
 
 
 
             return View(lists);
         }
+
         //get:/lists/details?name=some Details
         public IActionResult Details(string name)
         {
