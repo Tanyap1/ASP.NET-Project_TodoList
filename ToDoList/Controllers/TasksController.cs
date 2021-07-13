@@ -18,7 +18,9 @@ namespace ToDoList.Controllers
     public class TasksController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly object stream;
+#pragma warning disable IDE0044 // Add readonly modifier
+        private  object stream;
+#pragma warning restore IDE0044 // Add readonly modifier
 
         public TasksController(ApplicationDbContext context)
         {
