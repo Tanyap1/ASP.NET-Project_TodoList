@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoListtest", "ToDoListtest\ToDoListtest.csproj", "{C286C153-B5BE-455A-8159-426F227703AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{233601D5-1A3E-43D6-AF28-43E376E366BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{233601D5-1A3E-43D6-AF28-43E376E366BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{233601D5-1A3E-43D6-AF28-43E376E366BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C286C153-B5BE-455A-8159-426F227703AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C286C153-B5BE-455A-8159-426F227703AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C286C153-B5BE-455A-8159-426F227703AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C286C153-B5BE-455A-8159-426F227703AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
