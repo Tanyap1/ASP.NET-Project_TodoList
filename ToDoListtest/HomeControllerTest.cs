@@ -26,6 +26,7 @@ public  void PrivacyLoadsPrivacyView()
             var controller = new HomeController(null);
             var result = (ViewResult)controller.Privacy();
 
+            Assert.AreEqual("Privacy", result.ViewName);
         }
 
     }

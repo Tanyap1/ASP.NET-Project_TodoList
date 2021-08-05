@@ -36,6 +36,7 @@ namespace ToDoList
                 .AddRoles<IdentityRole>()
 
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
             services.AddAuthentication()
                 .AddGoogle(options =>
                 {
