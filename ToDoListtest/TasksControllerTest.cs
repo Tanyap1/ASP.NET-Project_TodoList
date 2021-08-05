@@ -3,6 +3,7 @@ using ToDoList.Controllers;
 using ToDoList.Data;
 using ToDoList.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,6 +44,23 @@ namespace ToDoListtest
             }
             _context.SaveChanges();
             controller = new TasksController(_context);
+        }
+        [TestMethod]
+        public void IndexViewLoads()
+        {
+            var result = controller.Index();
+            var viewResult =  result as ViewResult;
+            Assert.AreEqual("Index", viewResult.ViewName);
+        }
+        [TestMethod]
+        public void IndexReturnsTaskData()
+
+        {
+            var result = controller.Index();
+            var viewResult =
+                result as ViewResult;
+            var model = (List<ToDoList.Models.Task>)viewResult.Model;
+            CollectionAssert.AreEqual(tasks, model);
         }
     }
 }
