@@ -49,9 +49,22 @@ namespace ToDoListtest
         public void IndexViewLoads()
         {
             var result = controller.Index();
-            var viewResult =  result as ViewResult;
+            var viewResult = result as ViewResult;
             Assert.AreEqual("Index", viewResult.ViewName);
         }
+        [TestMethod]
+        public void GetDetailsNotFoundWithNulId()
+        {
+            // Arrange > InitializeTest()
+            // Act
+            var result = controller.Details(null);
+            var notFoundResult = (NotFoundResult)result.Result;
+            // Assert that status code returned is 404 Not Found
+            Assert.AreEqual(404, notFoundResult.StatusCode);
+        }
+
+
+
         [TestMethod]
         public void IndexReturnsTaskData()
 
@@ -62,5 +75,8 @@ namespace ToDoListtest
             var model = (List<ToDoList.Models.Task>)viewResult.Model;
             CollectionAssert.AreEqual(tasks, model);
         }
+
+
     }
-}
+
+    }

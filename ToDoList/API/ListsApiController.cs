@@ -30,7 +30,7 @@ namespace ToDoList.API
 
         // GET: api/ListsApi/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<List>> GetList(int id)
+        public async Task<ActionResult<List>> GetLists(int id)
         {
             var list = await _context.Lists.FindAsync(id);
 
